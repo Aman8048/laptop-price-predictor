@@ -15,7 +15,9 @@ storage = st.number_input("Storage (GB)", step=1)
 
 if st.button("Predict"):
     # Use same column order as your model was trained on
-    input_df = pd.DataFrame([[brand, ram, storage]], columns=['Brand', 'RAM', 'Storage']) 
+    input_df = pd.DataFrame([[brand, ram, storage]], columns=['Brand', 'RAM', 'Storage'])
+    print("DEBUG INPUT DF COLUMNS:", input_df.columns)
+
     prediction = pipe.predict(input_df)[0]
     st.success(f"Predicted Price: ₹{int(prediction):,}")
 
